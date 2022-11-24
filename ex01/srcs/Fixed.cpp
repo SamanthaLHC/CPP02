@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 18:03:20 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/24 21:20:35 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Fixed::Fixed (Fixed const & cpy)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = cpy;
 }
+
 
 Fixed::Fixed (const int num_to_convert)
 {
@@ -55,7 +56,7 @@ Fixed::~Fixed(void)
 Fixed& Fixed::operator = (Fixed const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixed_point_num = rhs.getRawBits();
+	this->_fixed_point_num = rhs._fixed_point_num;
 	return(*this);
 }
 

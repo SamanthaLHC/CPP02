@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:14:42 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 16:08:21 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/24 21:07:40 by samantha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Fixed
 		Fixed (Fixed const & cpy);
 		Fixed (const int num_to_convert);
 		Fixed (const float float_to_convert);
-		Fixed& operator = (Fixed const& rhs);
+		Fixed& operator=(Fixed const& rhs);
 		// ici le destruct n'est pas sous forme canonique
 		~Fixed(void);
 
@@ -38,6 +38,6 @@ class Fixed
 
 };
 
-std::ostream& operator << (std::ostream & o, Fixed const & i);
+std::ostream& operator<<(std::ostream & o, Fixed const & i);
 
 #endif
