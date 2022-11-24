@@ -6,11 +6,12 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 16:37:04 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/24 18:03:20 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cmath>
 #include "Fixed.hpp"
 
 //==============================================================================
@@ -23,7 +24,6 @@ Fixed::Fixed(void) : _fixed_point_num (0)
 	return;
 }
 
-
 Fixed::Fixed (Fixed const & cpy)
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -33,11 +33,13 @@ Fixed::Fixed (Fixed const & cpy)
 Fixed::Fixed (const int num_to_convert)
 {
 	std::cout << "Int constructor called" << std::endl;
+	this->_fixed_point_num = num_to_convert << this->_frac_part_bits;
 }
 
 Fixed::Fixed (const float float_to_convert)
 {
 	std::cout << "Float constructor called" << std::endl;
+	this->_fixed_point_num = roundf(float_to_convert * (1 << this->_frac_part_bits));
 }
 
 Fixed::~Fixed(void)
@@ -78,15 +80,14 @@ void Fixed::setRawBits( int const raw )
 	this->_fixed_point_num = raw;
 }
 
-//convertit  en fixe point un float
+//convertit  en fixe_point un float
 float Fixed::toFloat( void ) const
 {
-	
+	return (float) this->_fixed_point_num / (float) ( 1 << this->_frac_part_bits);
 }
 
-// convertit en fixe point un int
+// convertit en fixe_point un int
 int Fixed::toInt( void ) const
 {
-	
+	return this->_fixed_point_num >> this->_frac_part_bits;
 }
-
