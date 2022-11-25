@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:14:42 by sam               #+#    #+#             */
-/*   Updated: 2022/11/25 12:14:58 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/25 15:03:34 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class Fixed
 		//postfix opé_==========================================================
 		//======================================================================
 		
-		Fixed operator++(int val);
-		Fixed operator--(int val);
+		Fixed operator++(int);
+		Fixed operator--(int);
 		
 		//arithmetic_===========================================================
 		//======================================================================
@@ -65,6 +65,11 @@ class Fixed
 
 		float toFloat( void ) const;
 		int toInt( void ) const;
+
+		static Fixed min (Fixed& num1, Fixed& num2);
+		static Fixed min (Fixed const& num1, Fixed const& num2);
+		static Fixed max (Fixed& num1, Fixed& num2);
+		static Fixed max (Fixed const& num1, Fixed const& num2);
 
 	private:
 			int 				_fixed_point_num;
