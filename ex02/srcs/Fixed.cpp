@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/25 13:14:21 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/25 14:38:29 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,39 +68,52 @@ std::ostream& operator<<(std::ostream & o, Fixed const & i)
 	o << i.toFloat();
 	return o;
 }
+
 //__opérateurs de comparaisons__________________________________________________
 
 bool Fixed::operator<(Fixed const& rhs)
 {
-
+	if (this->toFloat() < rhs.toFloat())
+		return 1;
+	return 0;
 }
 
 bool Fixed::operator>(Fixed const& rhs)
 {
-
+	if (this->toFloat() > rhs.toFloat())
+		return 1;
+	return 0;
 }
 
 bool Fixed::operator<=(Fixed const& rhs)
 {
-
+	if (this->toFloat() <= rhs.toFloat())
+		return 1;
+	return 0;
 }
 
 bool Fixed::operator>=(Fixed const& rhs)
 {
-
+	if (this->toFloat() >= rhs.toFloat())
+		return 1;
+	return 0;
 }
 
 bool Fixed::operator!=(Fixed const& rhs)
 {
-
+	if (this->toFloat() != rhs.toFloat())
+		return 1;
+	return 0;
 }
 
 bool Fixed::operator==(Fixed const& rhs)
 {
-
+	if (this->toFloat() == rhs.toFloat())
+		return 1;
+	return 0;
 }
 
-//__opérateurs arithmétiques____________________________________________________
+//__arithmétics operators____________________________________________________
 
 Fixed Fixed::operator+(Fixed const& rhs)
 {
