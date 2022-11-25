@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/25 10:50:48 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/25 13:14:21 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,112 @@ Fixed::~Fixed(void)
 }
 
 //==============================================================================
-			// surcharges opérateurs
+			// operators overload
 //==============================================================================
 
-Fixed& Fixed::operator = (Fixed const& rhs)
+// __opérateur d'assignation____________________________________________________
+
+Fixed& Fixed::operator=(Fixed const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixed_point_num = rhs._fixed_point_num;
 	return(*this);
 }
 
-std::ostream& operator << (std::ostream & o, Fixed const & i)
+// __opérateur de flux de sortie standard_______________________________________
+
+std::ostream& operator<<(std::ostream & o, Fixed const & i)
 {
 	o << i.toFloat();
 	return o;
 }
+//__opérateurs de comparaisons__________________________________________________
 
+bool Fixed::operator<(Fixed const& rhs)
+{
 
+}
+
+bool Fixed::operator>(Fixed const& rhs)
+{
+
+}
+
+bool Fixed::operator<=(Fixed const& rhs)
+{
+
+}
+
+bool Fixed::operator>=(Fixed const& rhs)
+{
+
+}
+
+bool Fixed::operator!=(Fixed const& rhs)
+{
+
+}
+
+bool Fixed::operator==(Fixed const& rhs)
+{
+
+}
+
+//__opérateurs arithmétiques____________________________________________________
+
+Fixed Fixed::operator+(Fixed const& rhs)
+{
+	return Fixed (this->toFloat() + rhs.toFloat());
+}
+
+Fixed Fixed::operator-(Fixed const& rhs)
+{
+	return Fixed (this->toFloat() - rhs.toFloat());
+}
+
+Fixed Fixed::operator*(Fixed const& rhs)
+{
+	return Fixed (this->toFloat() * rhs.toFloat());
+}
+
+Fixed Fixed::operator/(Fixed const& rhs)
+{
+	return Fixed (this->toFloat() / rhs.toFloat());
+}
+
+//__opérateurs d´ incrémentation et de décrémentation___________________________
+
+Fixed& Fixed::operator++()
+{
+	this->_fixed_point_num++;
+	return *this;
+}
+
+Fixed& Fixed::operator--()
+{
+	this->_fixed_point_num++;
+	return  *this;
+}
+
+//le retour est une copie de l 'instance (un tmp) avant de faire les modifs que 
+// l'opérateur doit faire. cela permet de renvoyer une valeur et de l'augmenter
+
+Fixed Fixed::operator++(int val)
+{
+	Fixed tmp(*this);
+	++*this;
+	return tmp;
+}
+
+Fixed Fixed::operator--(int val)
+{
+	Fixed tmp(*this);
+	--*this;
+	return tmp;
+}
 
 //==============================================================================
-			// accesseurs et fonctions membres
+			// accessors and members functions
 // =============================================================================
 
 int Fixed::getRawBits( void ) const

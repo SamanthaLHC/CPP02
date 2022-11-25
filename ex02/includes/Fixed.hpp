@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:14:42 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 16:08:21 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/25 12:14:58 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,43 @@ class Fixed
 		Fixed (Fixed const & cpy);
 		Fixed (const int num_to_convert);
 		Fixed (const float float_to_convert);
-		Fixed& operator = (Fixed const& rhs);
 		// ici le destruct n'est pas sous forme canonique
 		~Fixed(void);
+
+		Fixed& operator=(Fixed const& rhs);
+		
+		//prefix ope_===========================================================
+		//======================================================================
+
+		Fixed& operator++();
+		Fixed& operator--();
+
+		//postfix opé_==========================================================
+		//======================================================================
+		
+		Fixed operator++(int val);
+		Fixed operator--(int val);
+		
+		//arithmetic_===========================================================
+		//======================================================================
+
+		Fixed operator+(Fixed const& rhs);
+		Fixed operator-(Fixed const& rhs);
+		Fixed operator*(Fixed const& rhs);
+		Fixed operator/(Fixed const& rhs);
+
+		//comparators_==========================================================
+		//======================================================================
+		
+		bool operator<(Fixed const& rhs);
+		bool operator>(Fixed const& rhs);
+		bool operator<=(Fixed const& rhs);
+		bool operator>=(Fixed const& rhs);
+		bool operator!=(Fixed const& rhs);
+		bool operator==(Fixed const& rhs);
+
+		// members func_========================================================
+		//======================================================================
 
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
