@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 18:03:20 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/25 10:50:48 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Fixed::~Fixed(void)
 Fixed& Fixed::operator = (Fixed const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixed_point_num = rhs.getRawBits();
+	this->_fixed_point_num = rhs._fixed_point_num;
 	return(*this);
 }
 
@@ -64,6 +64,8 @@ std::ostream& operator << (std::ostream & o, Fixed const & i)
 	o << i.toFloat();
 	return o;
 }
+
+
 
 //==============================================================================
 			// accesseurs et fonctions membres
