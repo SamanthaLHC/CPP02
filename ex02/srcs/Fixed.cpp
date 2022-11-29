@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 13:39:10 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:24:22 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cmath>
 #include "Fixed.hpp"
 
-int const	_frac_part_bits = 8;
+int const	Fixed::_frac_part_bits = 8;
 
 //==============================================================================
 // constructors and destructor
@@ -174,7 +174,7 @@ Fixed Fixed::operator--(int)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return this->_fixed_point_num;
 }
 
