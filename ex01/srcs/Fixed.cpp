@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 13:20:14 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:51:40 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cmath>
 #include "Fixed.hpp"
 
-int const _frac_part_bits = 8;
+int const Fixed::_frac_part_bits = 8;
 
 //==============================================================================
 	// constructors and destructor
@@ -42,7 +42,7 @@ Fixed::Fixed (const int num_to_convert)
 Fixed::Fixed (const float float_to_convert)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixed_point_num = roundf(float_to_convert * (1 << this->_frac_part_bits));
+	this->_fixed_point_num = roundf(float_to_convert * (1 << _frac_part_bits));
 }
 
 Fixed::~Fixed(void)
@@ -86,11 +86,11 @@ void Fixed::setRawBits( int const raw )
 //convertit  en fixe_point un float
 float Fixed::toFloat( void ) const
 {
-	return (float) this->_fixed_point_num / (float) ( 1 << this->_frac_part_bits);
+	return (float) this->_fixed_point_num / (float) ( 1 << _frac_part_bits);
 }
 
 // convertit en fixe_point un int
 int Fixed::toInt( void ) const
 {
-	return this->_fixed_point_num >> this->_frac_part_bits;
+	return this->_fixed_point_num >> _frac_part_bits;
 }

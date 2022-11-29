@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:14:42 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 13:13:51 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 13:42:49 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Fixed
 		float toFloat( void ) const;
 		int toInt( void ) const;
 
+		
 	private:
 			int 				_fixed_point_num;
 			static int const	_frac_part_bits;

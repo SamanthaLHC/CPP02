@@ -6,14 +6,14 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 13:08:47 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:51:21 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
 
-int const __attribute__ ((unused))	_frac_part_bits = 8;
+int const __attribute__ ((unused))	Fixed::_frac_part_bits = 8;
 
 Fixed::Fixed(void) : _fixed_point_num (0)
 {
