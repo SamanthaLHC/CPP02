@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 15:37:16 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/29 13:08:47 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
+
+int const __attribute__ ((unused))	_frac_part_bits = 8;
 
 Fixed::Fixed(void) : _fixed_point_num (0)
 {
@@ -31,7 +33,7 @@ Fixed::Fixed (Fixed const & cpy)
 	*this = cpy;
 }
 
-Fixed& Fixed::operator = (Fixed const& rhs)
+Fixed& Fixed::operator=(Fixed const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixed_point_num = rhs.getRawBits();

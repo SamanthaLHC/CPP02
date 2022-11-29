@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/25 15:05:12 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/29 13:39:10 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath>
 #include "Fixed.hpp"
+
+int const	_frac_part_bits = 8;
 
 //==============================================================================
 // constructors and destructor
@@ -126,7 +128,13 @@ Fixed Fixed::operator*(Fixed const &rhs)
 
 Fixed Fixed::operator/(Fixed const &rhs)
 {
-	return Fixed(this->toFloat() / rhs.toFloat());
+	if (rhs.getRawBits() == 0)
+	{
+		std::cerr  << "warning: you try to divide by 0" << std::endl;
+		return *this;
+	}
+	else
+		return Fixed(this->toFloat() / rhs.toFloat());
 }
 
 //__opérateurs d´ incrémentation et de décrémentation___________________________
@@ -139,7 +147,7 @@ Fixed &Fixed::operator++()
 
 Fixed &Fixed::operator--()
 {
-	this->_fixed_point_num++;
+	this->_fixed_point_num--;
 	return *this;
 }
 

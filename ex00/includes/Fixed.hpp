@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:14:42 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 15:32:18 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/29 13:05:14 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,15 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed (Fixed const & cpy);
-		Fixed& operator = (Fixed const& rhs);
-		// ici le destruct n'est pas sous forme canonique
+		Fixed& operator=(Fixed const& rhs);
 		~Fixed(void);
 
-		//retourne la valeur du nombre à virgule fixe sans la convertir.
 		int getRawBits( void ) const;
-		//initialise la valeur du nombre à virgule fixe avec celle passée en paramètre.
 		void setRawBits( int const raw );
 
 	private:
 			int 				_fixed_point_num;
-			static int const	_frac_part_bits = 8;
+			static int const	_frac_part_bits;
 
 };
 

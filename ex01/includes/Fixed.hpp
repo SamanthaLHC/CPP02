@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samantha <samantha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:14:42 by sam               #+#    #+#             */
-/*   Updated: 2022/11/24 21:07:40 by samantha         ###   ########.fr       */
+/*   Updated: 2022/11/29 13:13:51 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Fixed
 		Fixed (const int num_to_convert);
 		Fixed (const float float_to_convert);
 		Fixed& operator=(Fixed const& rhs);
-		// ici le destruct n'est pas sous forme canonique
 		~Fixed(void);
 
 		int getRawBits( void ) const;
@@ -34,7 +33,7 @@ class Fixed
 
 	private:
 			int 				_fixed_point_num;
-			static int const	_frac_part_bits = 8;
+			static int const	_frac_part_bits;
 
 };
 

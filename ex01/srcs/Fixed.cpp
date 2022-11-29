@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/25 12:07:35 by sam              ###   ########.fr       */
+/*   Updated: 2022/11/29 13:20:14 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cmath>
 #include "Fixed.hpp"
+
+int const _frac_part_bits = 8;
 
 //==============================================================================
 	// constructors and destructor
@@ -34,7 +36,7 @@ Fixed::Fixed (Fixed const & cpy)
 Fixed::Fixed (const int num_to_convert)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixed_point_num = num_to_convert << this->_frac_part_bits;
+	this->_fixed_point_num = num_to_convert << _frac_part_bits;
 }
 
 Fixed::Fixed (const float float_to_convert)
@@ -53,14 +55,14 @@ Fixed::~Fixed(void)
 			// operators overload
 //==============================================================================
 
-Fixed& Fixed::operator = (Fixed const& rhs)
+Fixed& Fixed::operator=(Fixed const& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixed_point_num = rhs._fixed_point_num;
 	return(*this);
 }
 
-std::ostream& operator << (std::ostream & o, Fixed const & i)
+std::ostream& operator<<(std::ostream& o, Fixed const& i)
 {
 	o << i.toFloat();
 	return o;
