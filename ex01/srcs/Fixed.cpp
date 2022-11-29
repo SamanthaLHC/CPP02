@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 14:51:40 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:02:15 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,11 @@ Fixed::~Fixed(void)
 
 Fixed& Fixed::operator=(Fixed const& rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_fixed_point_num = rhs._fixed_point_num;
+	if (this != &rhs)
+	{
+		std::cout << "Copy assignment operator called" << std::endl;
+		this->_fixed_point_num = rhs._fixed_point_num;
+	}
 	return(*this);
 }
 

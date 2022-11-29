@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 10:46:26 by sam               #+#    #+#             */
-/*   Updated: 2022/11/29 14:52:04 by sle-huec         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:02:56 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ Fixed::~Fixed(void)
 
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
-	this->_fixed_point_num = rhs._fixed_point_num;
+	if (this != &rhs)
+		this->_fixed_point_num = rhs._fixed_point_num;
 	return (*this);
 }
 
